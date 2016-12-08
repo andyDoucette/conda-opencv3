@@ -1,3 +1,10 @@
+Andy's modifications
+============
+This is a modified version of https://github.com/menpo/conda-opencv3, but with a a few modifications for our specific
+Noisy Idea usage.  Some notable differences are:
+
+* Compiling with WITH_GSTREAMER=on configuration.
+
 conda-opencv3 ![Conda Build Number](http://anaconda.org/menpo/opencv3/badges/version.svg)
 =============
 This repository contains a conda recipe for automatically building the OpenCV3 Python package and uploading it to our anaconda repository, menpo. This recipe provides builds for Win32, Win64, OSX64 and Linux64 (Ubuntu 12.04 and above).
