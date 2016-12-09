@@ -1,0 +1,13 @@
+--- ../modules/python/common.cmake	2016-12-09 12:06:08.357946362 -0600
++++ ../modules/python/common.cmake	2016-12-09 12:05:18.566671677 -0600
+@@ -1,6 +1,10 @@
+ # This file is included from a subdirectory
+ set(PYTHON_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../")
+ 
++#Added by Andy:
++find_package(HDF5)
++include_directories(${HDF5_INCLUDE_DIRS})
++
+ ocv_add_module(${MODULE_NAME} BINDINGS)
+ 
+ ocv_module_include_directories(

@@ -10,6 +10,7 @@ source:
   patches:
     - cap_mpjpeg_decoder.patch  # [win]
     - no_rpath.patch
+    - common.cmake.patch #Added by to fix a problem finding hdf5.h
 
 requirements:
   build:

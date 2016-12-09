@@ -5,6 +5,10 @@ Noisy Idea usage.  Some notable differences are:
 
 * Compiling with WITH_GSTREAMER=on configuration.
 
+Note:  If you get an error complaining about file names being too long and a bunch of "placehold_placehold_placehold..." text in the name,
+the solution is to make sure you're running using the global anaconda python (not the specific conda environment for the project or the 
+system python), to edit ~/.anaconda3/lib/python3.5/site-packages/conda_build/config.py:74 and change it to "DEFAULT_PREFIX_LENGTH = 74"
+
 conda-opencv3 ![Conda Build Number](http://anaconda.org/menpo/opencv3/badges/version.svg)
 =============
 This repository contains a conda recipe for automatically building the OpenCV3 Python package and uploading it to our anaconda repository, menpo. This recipe provides builds for Win32, Win64, OSX64 and Linux64 (Ubuntu 12.04 and above).
