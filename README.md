@@ -41,14 +41,9 @@ $ git clone https://github.com/menpo/conda-opencv3
 $ cd conda-opencv3
 $ conda config --add channels menpo
 $ conda build conda/
+$ cd /.condaUser/.anaconda3/conda-bld/ #Prevents a "AttributeError: 'FileNotFoundError' object has no attribute 'read'" error.
 $ conda install /PATH/TO/OPENCV3/PACKAGE.tar.gz
 ```
-
-*Added by Andy:*
-If that lastmand doesn't work, and it complains about some read function, the issue is that it's not finding a specific file.
-Cding to "/home/andromodon/.anaconda3/conda-bld" and running the conda isntall command again should pull things into a local cache that will make
-it work from now on.
-
 If you wish to edit any settings, such as enabling FFMPEG functionality, please edit the `build.sh` or `bld.bat` files in order to enable `(1)` or disable `(0)` the required settings. Note that in the case where you wish to achieve something like linking an external library, this may be complicated. In this event, I am unable to provide any assistance. The primary reason for providing this package was to attempt to avoid this kind of hassle in the first place!
 
 Known Issues
