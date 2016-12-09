@@ -44,29 +44,37 @@ cd opencv_contrib
 git checkout tags/$PKG_VERSION
 cd ..
 
-cmake .. -G"$CMAKE_GENERATOR"                                            \
+cmake -G"$CMAKE_GENERATOR"                                            \
     $TBB                                                                 \
     $OPENMP                                                              \
     $OCV_PYTHON                                                          \
-    -DWITH_EIGEN=1                                                       \
-    -DBUILD_TESTS=0                                                      \
-    -DBUILD_DOCS=0                                                       \
-    -DBUILD_PERF_TESTS=0                                                 \
-    -DBUILD_ZLIB=1                                                       \
-    -DBUILD_TIFF=1                                                       \
-    -DBUILD_PNG=1                                                        \
-    -DBUILD_OPENEXR=1                                                    \
-    -DBUILD_JASPER=1                                                     \
-    -DBUILD_JPEG=1                                                       \
-    -DWITH_CUDA=0                                                        \
-    -DWITH_OPENCL=0                                                      \
-    -DWITH_OPENNI=0                                                      \
-    -DWITH_FFMPEG=0                                                      \
-    -DWITH_VTK=0                                                         \
-    -DINSTALL_C_EXAMPLES=0                                               \
-    -DOPENCV_EXTRA_MODULES_PATH="opencv_contrib/modules"                 \
-    -DCMAKE_SKIP_RPATH:bool=ON                                           \
-    -DCMAKE_INSTALL_PREFIX=$PREFIX
-make -j${CPU_COUNT}
+    -D WITH_EIGEN=1                                                       \
+    -D BUILD_TESTS=0                                                      \
+    -D BUILD_DOCS=0                                                       \
+    -D BUILD_PERF_TESTS=0                                                 \
+    -D BUILD_ZLIB=1                                                       \
+    -D BUILD_TIFF=1                                                       \
+    -D BUILD_PNG=1                                                        \
+    -D BUILD_OPENEXR=1                                                    \
+    -D BUILD_JASPER=1                                                     \
+    -D BUILD_JPEG=1                                                       \
+    -D WITH_CUDA=0                                                        \
+    -D WITH_OPENCL=0                                                      \
+    -D WITH_OPENNI=0                                                      \
+    -D WITH_FFMPEG=0                                                      \
+    -D WITH_VTK=0                                                         \
+    -D INSTALL_C_EXAMPLES=0                                               \
+    -D OPENCV_EXTRA_MODULES_PATH="opencv_contrib/modules"                 \
+    -D CMAKE_SKIP_RPATH:bool=ON                                           \
+    -D CMAKE_INSTALL_PREFIX=/usr/local                                    \
+    -D CMAKE_BUILD_TYPE=Release                                           \
+    -D WITH_GSTREAMER=on                                                  \
+    -D WITH_JPEG=OFF                                                      \
+    -D CMAKE_INSTALL_PREFIX=/usr/local                                    \
+    PYTHON3_EXECUTABLE=$PYTHON                                            \
+    PYTHON_INCLUDE_DIR=$PREFIX/include/python${PY_VER}                    \
+    PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so             \
+    PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.5/dist-packages/numpy/core/include ..
+  make -j${CPU_COUNT}
 make install
 
