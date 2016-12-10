@@ -70,11 +70,10 @@ cmake -G"$CMAKE_GENERATOR"                                            \
     -D CMAKE_BUILD_TYPE=Release                                           \
     -D WITH_GSTREAMER=on                                                  \
     -D WITH_JPEG=OFF                                                      \
-    -D CMAKE_INSTALL_PREFIX=/usr/local                                    \
-    PYTHON3_EXECUTABLE=$PYTHON                                            \
+    -D CMAKE_INSTALL_PREFIX=$PREFIX/local                                    \
     PYTHON_INCLUDE_DIR=$PREFIX/include/python${PY_VER}                    \
-    PYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.5m.so             \
-    PYTHON3_NUMPY_INCLUDE_DIRS=/usr/local/lib/python3.5/dist-packages/numpy/core/include ..
+    PYTHON_LIBRARY=$PREFIX/lib/x86_64-linux-gnu/libpython3.5m.so             \
+    PYTHON3_NUMPY_INCLUDE_DIRS=$PREFIX/local/lib/python3.5/dist-packages/numpy/core/include ..
   make -j${CPU_COUNT}
 make install
 
