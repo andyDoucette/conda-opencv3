@@ -66,14 +66,11 @@ cmake -G"$CMAKE_GENERATOR"                                            \
     -D INSTALL_C_EXAMPLES=0                                               \
     -D OPENCV_EXTRA_MODULES_PATH="opencv_contrib/modules"                 \
     -D CMAKE_SKIP_RPATH:bool=ON                                           \
-    -D CMAKE_INSTALL_PREFIX=/usr/local                                    \
     -D CMAKE_BUILD_TYPE=Release                                           \
     -D WITH_GSTREAMER=on                                                  \
     -D WITH_JPEG=OFF                                                      \
-    -D CMAKE_INSTALL_PREFIX=$PREFIX/local                                    \
-    PYTHON_INCLUDE_DIR=$PREFIX/include/python${PY_VER}                    \
-    PYTHON_LIBRARY=$PREFIX/lib/x86_64-linux-gnu/libpython3.5m.so             \
-    PYTHON3_NUMPY_INCLUDE_DIRS=$PREFIX/local/lib/python3.5/dist-packages/numpy/core/include ..
+    -D CMAKE_INSTALL_PREFIX=$PREFIX/local                                 \
+      ..
   make -j${CPU_COUNT}
 make install
 
